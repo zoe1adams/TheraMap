@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TheraMap - Intake</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       margin: 0;
@@ -28,12 +27,6 @@
       color: #1a1a1a;
     }
 
-    p {
-      font-size: 14px;
-      margin: 5px 0 20px;
-      color: #2e2e2e;
-    }
-
     .form-container {
       background-color: #0c2d6d;
       padding: 25px;
@@ -41,64 +34,84 @@
       width: 90%;
       max-width: 400px;
       margin: 20px auto;
+      color: white;
     }
 
     label {
-      color: #fff;
-      font-size: 14px;
       display: block;
-      margin-bottom: 6px;
+      margin: 15px 0 5px;
+      font-weight: bold;
     }
 
     input, select {
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 10px;
+      border-radius: 8px;
       border: none;
-      margin-bottom: 15px;
-      font-size: 14px;
+      margin-bottom: 10px;
     }
 
-    button {
+    .btn-submit {
       width: 100%;
-      background-color: #ffc107;
-      color: #000;
-      border: none;
       padding: 12px;
+      border: none;
       border-radius: 10px;
+      background-color: #28a745; /* Green */
+      color: white;
       font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background-color: #218838;
+    }
+
+    .ai-chat {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 400px;
+      padding: 15px;
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .ai-chat input {
+      width: calc(100% - 80px);
+      padding: 10px;
+      margin-right: 10px;
+    }
+
+    .ai-chat button {
+      width: 60px;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
       cursor: pointer;
     }
 
     .nav-bar {
+      display: flex;
+      justify-content: space-around;
+      background-color: #fffbe6;
+      padding: 15px 0;
+      border-top: 1px solid #ccc;
       position: fixed;
       bottom: 0;
       width: 100%;
-      display: flex;
-      justify-content: space-around;
-      background-color: #fffde6;
-      padding: 10px 0;
-      border-top: 1px solid #e2e2e2;
     }
 
     .nav-bar i {
-      font-size: 22px;
-    }
-
-    .ai-tag {
-      background-color: #ffc107;
-      border-radius: 6px;
-      padding: 4px 10px;
-      margin-left: 10px;
-      font-weight: bold;
-      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      font-size: 24px;
     }
   </style>
 </head>
 <body>
 
   <div class="logo-container">
-    <img src="theramap-logo.png" alt="TheraMap Logo" class="logo" />
+    <img class="logo" src="logo.png" alt="TheraMap Logo">
     <h1>TheraMap</h1>
     <p>Map your mind.</p>
   </div>
@@ -106,35 +119,80 @@
   <div class="form-container">
     <form id="intake-form">
       <label for="insurance">Insurance</label>
-      <input type="text" id="insurance" placeholder="Insurance Provider" />
+      <input type="text" id="insurance" placeholder="Insurance Provider" required>
 
       <label for="location">Location</label>
-      <input type="text" id="location" placeholder="Zip code or City/state" />
+      <input type="text" id="location" placeholder="Zip code or City/state" required>
 
       <label for="concerns">Concerns</label>
-      <input type="text" id="concerns" placeholder="Value" />
+      <input type="text" id="concerns" placeholder="e.g. anxiety, stress" required>
 
       <label for="format">Format</label>
-      <select id="format">
-        <option value="">In-Person or Online</option>
+      <select id="format" required>
+        <option value="">Select one</option>
         <option value="in-person">In-Person</option>
         <option value="online">Online</option>
       </select>
 
-      <button type="submit">Find My Match</button>
+      <button type="submit" class="btn-submit">Find My Match</button>
     </form>
   </div>
 
-  <div class="nav-bar">
-    <i class="fas fa-home"></i>
-    <i class="fas fa-comment-alt"></i>
-    <i class="fas fa-plus-square"></i>
-    <i class="fas fa-bell"></i>
-    <i class="fas fa-arrow-up"></i>
+  <div class="ai-chat">
+    <input type="text" id="ai-input" placeholder="Tell us how you're feeling..." />
+    <button onclick="handleAIPrompt()">Send</button>
   </div>
 
-  <!-- Font Awesome for nav icons -->
+  <div class="nav-bar">
+    <i class="fa-solid fa-house"></i>
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-plus-square"></i>
+    <i class="fa-solid fa-bell"></i>
+    <i class="fa-solid fa-caret-up"></i>
+  </div>
+
+  <script>
+    // Handle AI Chat
+    async function handleAIPrompt() {
+      const userInput = document.getElementById('ai-input').value;
+
+      if (!userInput) return alert("Please type something.");
+      
+      try {
+        const response = await fetch('/api/ai-intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userInput })
+        });
+
+        const data = await response.json();
+        alert("AI Response: " + data.reply);
+      } catch (error) {
+        console.error("AI error:", error);
+        alert("Something went wrong. Please try again.");
+      }
+    }
+
+    // Handle Form Submission
+    document.getElementById('intake-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const insurance = document.getElementById('insurance').value;
+      const location = document.getElementById('location').value;
+      const concerns = document.getElementById('concerns').value;
+      const format = document.getElementById('format').value;
+
+      try {
+        const response = await fetch(`/api/therapists?insurance=${insurance}&location=${location}&concerns=${concerns}&format=${format}`);
+        const data = await response.json();
+        localStorage.setItem('therapistResults', JSON.stringify(data));
+        window.location.href = 'results.html';
+      } catch (err) {
+        console.error('Fetch error:', err);
+        alert('Could not get therapist matches.');
+      }
+    });
+  </script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="js/intake.js"></script>
 </body>
 </html>
