@@ -371,3 +371,23 @@ nav {
 }
 
 
+
+
+
+nav {
+	background-color:  #d6fffc;
+	padding: 20px;
+	text-align: center;
+  font-size: 50px;
+  font-family: "Barriecito";
+  padding-bottom: ;
+
+}
+Nav a {
+    color: #000000;
+}
+
+Nav a:hover {
+    color:hotpink;
+    text-decoration: underline;
+}
