@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find a Kiosk</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Find a Kiosk</h1>
+    <p>Locate nearby physical kiosks or digital check-in stations.</p>
+  </header>
+
+  <main>
+    <section class="kiosk-locations">
+      <h2>Kiosk Locations</h2>
+      <div id="map"></div>
+
+      <ul class="kiosk-list">
+        <li>
+          <strong>Downtown Health Center</strong><br/>
+          123 Main Street, YourCity, ST 12345<br/>
+          <em>Open: Mon-Fri, 9am–5pm</em><br/>
+          <a href="#">Book Appointment</a> | <a href="#">Find a Therapist</a>
+        </li>
+        <li>
+          <strong>Community Wellness Hub</strong><br/>
+          456 Wellness Ave, YourCity, ST 67890<br/>
+          <em>Open: Mon-Sat, 10am–6pm</em><br/>
+          <a href="#">Book Appointment</a> | <a href="#">Find a Therapist</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Wellness Services. All rights reserved.</p>
+  </footer>
+
+  <!-- Optional Map Script -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: { lat: 40.7128, lng: -74.0060 }, // Example: New York City
+      });
+
+      const locations = [
+        { lat: 40.712776, lng: -74.005974, title: "Downtown Health Center" },
+        { lat: 40.730610, lng: -73.935242, title: "Community Wellness Hub" },
+      ];
+
+      locations.forEach(loc => {
+        new google.maps.Marker({
+          position: loc,
+          map,
+          title: loc.title,
+        });
+      });
+    }
+  </script>
+</body>
+</html>
