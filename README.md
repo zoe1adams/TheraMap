@@ -37,12 +37,12 @@ This project was created as part of a group collaboration for the FAMU + Eli Lil
 
 | Name | Major |
 |------|-------|
-| 1. [Your Name Here] | [Your Major] |
-| 2. [Your Name Here] | [Your Major] |
-| 3. [Your Name Here] | [Your Major] |
-| 4. [Your Name Here] | [Your Major] |
-| 5. [Your Name Here] | [Your Major] |
-| 6. [Your Name Here] | [Your Major] |
+| 1. Zoe Adams | Computer Information Systems |
+| 2. Victoria Archie | Computer Information System |
+| 3. Zahmira Williams | Cybersecurity |
+| 4. Noelle Horne | Cybersecurity |
+| 5. Jaylah Wilson | Information Technology |
+| 6. Alyssa DeVaughn | FAMU DRS |
 
 ---
 
