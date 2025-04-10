@@ -331,54 +331,11 @@ input, select {
 
 
 
-
-
-
-
-nav {
-  background-color: var(--cream);
-  padding: 1rem;
-  text-align: center;
-}
-
-.nav-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.nav-menu li {
-  list-style: none;
-}
-
-.nav-menu a {
-  color: var(--navy);
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0.4rem 0.6rem;
-  border-radius: 4px;
-  transition: background-color 0.3s, text-decoration 0.3s;
-}
-
-.nav-menu a:hover {
-  background-color: #b9fcd8; /* mint green */
-  text-decoration: underline;
-}
-
-
-
-
-
 nav {
 	background-color:  #d6fffc;
 	padding: 20px;
 	text-align: center;
-  font-size: 50px;
+  font-size: 30px;
   font-family: "Barriecito";
   padding-bottom: ;
 
@@ -388,6 +345,6 @@ Nav a {
 }
 
 Nav a:hover {
-    color:hotpink;
+    color:#fff5d9;
     text-decoration: underline;
 }
