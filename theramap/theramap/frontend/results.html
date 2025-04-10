@@ -1,90 +1,61 @@
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TheraMap - Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <!-- Header -->
+  <div class="flex items-center p-4 border-b shadow-sm">
+    <button class="text-2xl mr-4">&#8592;</button>
+    <h1 class="text-xl font-semibold">Search</h1>
+  </div>
 
-app.use(bodyParser.json());
+  <!-- Tabs -->
+  <div class="flex justify-around py-2 bg-gray-100 border-b">
+    <button class="px-3 py-1 rounded-full bg-gray-300 text-sm">Find a Kiosk</button>
+    <button class="px-3 py-1 rounded-full bg-yellow-400 text-white text-sm flex items-center gap-1">
+      👩‍⚕️ Therapist
+    </button>
+    <button class="px-3 py-1 rounded-full bg-gray-300 text-sm">Articles</button>
+  </div>
 
-const therapists = [
-  { id: 1, name: "Dr. Smith", location: "New York", insurance: "Aetna", specialty: "Anxiety" },
-  { id: 2, name: "Dr. Johnson", location: "Los Angeles", insurance: "Cigna", specialty: "Depression" },
-  // Add more therapists...
-];
+  <!-- Filter / Sort -->
+  <div class="flex justify-between items-center px-4 py-3">
+    <div class="flex gap-2">
+      <button class="px-4 py-2 bg-gray-100 border rounded-md text-sm">Filter</button>
+      <button class="px-4 py-2 bg-gray-100 border rounded-md text-sm">Sort</button>
+    </div>
+    <div class="text-sm text-gray-500">99 results</div>
+  </div>
 
-app.post("/match-therapists", (req, res) => {
-  const { location, insurance, mentalHealthConcern } = req.body;
+  <!-- Map Simulation with Distance Tags -->
+  <div class="relative h-60 bg-gray-200 flex items-center justify-center">
+    <img src="https://via.placeholder.com/350x200?text=Map" alt="Map" class="absolute inset-0 w-full h-full object-cover opacity-40" />
+    <div class="grid grid-cols-3 gap-2 z-10">
+      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">22 miles</span>
+      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">19 miles</span>
+      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">15 miles</span>
+      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">11 miles</span>
+      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">2 miles</span>
+      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">4 miles</span>
+      <span class="bg-blue-900 text-white rounded-full px-3 py-1 text-xs shadow font-semibold">0.7 miles</span>
+    </div>
+  </div>
 
-  const matchedTherapists = therapists.filter((therapist) => 
-    therapist.location === location &&
-    therapist.insurance === insurance &&
-    therapist.specialty.toLowerCase().includes(mentalHealthConcern.toLowerCase())
-  );
-  
-  res.json(matchedTherapists);
-});
-
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
-});
-3. AI Chat Assistant
-The AI chatbot can be built using natural language processing (NLP) tools. For simple functionality, you could use Dialogflow or Rasa to create a conversational assistant.
-
-Technologies:
-
-Backend: Node.js or Python (Flask/Django)
-
-AI: Google Dialogflow, Rasa, or Microsoft Bot Framework
-
-Sample Integration (Dialogflow with Node.js):
-
-javascript
-Copy
-Edit
-const dialogflow = require('@google-cloud/dialogflow');
-const uuid = require('uuid');
-
-async function runSample() {
-  const sessionClient = new dialogflow.SessionsClient();
-  const sessionId = uuid.v4();
-  const sessionPath = sessionClient.projectAgentSessionPath('your-project-id', sessionId);
-
-  const request = {
-    session: sessionPath,
-    queryInput: {
-      text: {
-        text: 'I need help with anxiety',
-        languageCode: 'en-US',
-      },
-    },
-  };
-
-  const responses = await sessionClient.detectIntent(request);
-  console.log(`Detected intent: ${responses[0].queryResult.intent.displayName}`);
-  console.log(`Fulfillment text: ${responses[0].queryResult.fulfillmentText}`);
-}
-
-runSample();
-4. Article Library
-The article library can be integrated with a simple content management system (CMS) or built using a database of articles. You can fetch articles based on topics or categories.
-
-Technologies:
-
-Frontend: React.js or plain HTML/CSS
-
-Backend: Node.js, Flask, or Firebase
-
-Database: MongoDB, Firebase
-
-Sample Backend (Express):
-
-
-const articles = [
-  { id: 1, title: "Understanding Anxiety", category: "Anxiety", content: "Content about anxiety..." },
-  { id: 2, title: "Coping with Depression", category: "Depression", content: "Content about depression..." },
-  // Add more articles...
-];
-
-app.get("/articles", (req, res) => {
-  const { category } = req.query;
-  const filteredArticles = articles.filter(article => article.category === category);
-  res.json(filteredArticles);
-});
+  <!-- Therapist Cards -->
+  <div class="px-4 py-6">
+    <div class="mb-4 rounded-xl overflow-hidden shadow-md">
+      <img src="https://via.placeholder.com/400x200?text=Therapist+1" alt="Therapist 1" class="w-full h-48 object-cover" />
+    </div>
+    <div class="mb-4 rounded-xl overflow-hidden shadow-md">
+      <img src="https://via.placeholder.com/400x200?text=Therapist+2" alt="Therapist 2" class="w-full h-48 object-cover" />
+    </div>
+    <button class="w-full bg-blue-900 text-white py-3 rounded-xl font-semibold">
+      Check Therapist (63)
+    </button>
+  </div>
+</body>
+</html>
