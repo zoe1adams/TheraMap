@@ -140,20 +140,20 @@
     <p>&copy; 2025 Wellness Services. All rights reserved.</p>
   </footer>
 
-  <!-- Optional Map Script -->
+  <!-- Map Script -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
   <script>
     function initMap() {
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 12,
-        center: { lat: 40.7128, lng: -74.0060 }, // Example: New York City
+        center: { lat: 30.4383, lng: -84.2807 }, // Tallahassee, FL
       });
 
       const locations = [
-        { lat: 40.712776, lng: -74.005974, title: "Downtown Health Center" },
-        { lat: 40.730610, lng: -73.935242, title: "Community Wellness Hub" },
-        { lat: 40.758896, lng: -73.985130, title: "Uptown Health Station" },
-        { lat: 40.752726, lng: -73.977229, title: "Eastside Wellness Clinic" },
+        { lat: 30.4383, lng: -84.2807, title: "Downtown Health Center" },
+        { lat: 30.4418, lng: -84.2913, title: "Community Wellness Hub" },
+        { lat: 30.4510, lng: -84.2801, title: "Uptown Health Station" },
+        { lat: 30.4357, lng: -84.2799, title: "Eastside Wellness Clinic" },
       ];
 
       locations.forEach(loc => {
