@@ -2,56 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TheraMap Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fake Chat - TheraMap</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #f7f8fc 0%, #e3e6f0 100%);
-      color: #333;
+      background: #f0f2f5;
+      font-family: Arial, sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
     }
 
-    .chat-container {
-      text-align: center;
-      padding: 20px;
+    .chat-box {
+      background: #fff;
+      width: 380px;
+      height: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    h1 {
-      font-size: 2rem;
-      color: #4a4e69;
-      margin-bottom: 10px;
+    .chat-header {
+      background: #6c73a8;
+      padding: 15px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
     }
 
-    p {
-      font-size: 1rem;
-      color: #555;
-      max-width: 500px;
-      margin: 0 auto 20px;
+    .chat-body {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .chat-info {
-      font-style: italic;
-      color: #888;
+    .message {
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .bot {
+      background: #e3e6f0;
+      align-self: flex-start;
+    }
+
+    .user {
+      background: #6c73a8;
+      color: white;
+      align-self: flex-end;
+    }
+
+    .chat-footer {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background: #fafafa;
+    }
+
+    .input-bar {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      outline: none;
+      background: #f1f1f1;
     }
   </style>
 </head>
 <body>
 
-  <div class="chat-container">
-    <h1>Welcome to TheraMap 💬</h1>
-    <p>We're here to guide you through therapy options and get you matched with the right mental health support. Use the chat in the corner to get started.</p>
-    <p class="chat-info">Tidio chat is available in the bottom corner.</p>
+  <div class="chat-box">
+    <div class="chat-header">TheraMap Assistant</div>
+    <div class="chat-body">
+      <div class="message bot">Hi there! 👋 Welcome to TheraMap. I'm here to help with your intake process. Are you looking for therapy support today?</div>
+      <div class="message user">Yes, I’m interested in individual therapy.</div>
+      <div class="message bot">Awesome! Do you have a preferred availability for sessions?</div>
+      <div class="message user">Evenings during the week.</div>
+      <div class="message bot">Got it. And are you using any health insurance we should know about?</div>
+      <div class="message user">Blue Cross Blue Shield.</div>
+      <div class="message bot">Perfect — we work with Blue Cross! Let’s go ahead and match you with the right therapist. 💬</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" class="input-bar" placeholder="Type a message..." disabled />
+    </div>
   </div>
-
-  <!-- ✅ Tidio Chatbot Script -->
-  <script src="//code.tidio.co/uakjyfc7bdufmh1m3l9t8spmripgot2d.js" async></script>
 
 </body>
 </html>
