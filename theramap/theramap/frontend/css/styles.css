@@ -231,3 +231,91 @@ input, select {
     font-size: 30px;
   }
 }
+:root {
+      --navy: #0a1f44;
+      --cream: #fcefd4;
+      --text-dark: #1a1a1a;
+      --text-light: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--navy);
+      color: var(--text-light);
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      color: var(--text-dark);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--navy);
+    }
+
+    .card p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--cream);
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .card a:hover {
+      background-color: #f9e4b4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-light);
+      background-color: var(--navy);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
