@@ -19,6 +19,149 @@
 
 
 
+    <style>
+    :root {
+      --navy: #0a1f44;
+      --cream: #fcefd4;
+      --text-dark: #1a1a1a;
+      --text-light: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--navy);
+      color: var(--text-light);
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      color: var(--text-dark);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--navy);
+    }
+
+    .card p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--cream);
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .card a:hover {
+      background-color: #f9e4b4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-light);
+      background-color: var(--navy);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mental Health Articles</h1>
+    <p>Browse expert insights and self-help tips for wellness and care</p>
+  </header>
+
+  <main>
+    <section class="grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <h2>How to Find the Right Therapist</h2>
+        <p>Learn how to choose a therapist that fits your needs, goals, and comfort level.</p>
+        <a href="articles/therapist.html">Read More</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <h2>Understanding Anxiety</h2>
+        <p>Explore the symptoms, causes, and treatments for anxiety and how to manage it.</p>
+        <a href="articles/anxiety.html">Read More</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <h2>Mindfulness for Beginners</h2>
+        <p>Start your mindfulness journey with simple techniques to improve mental clarity.</p>
+        <a href="articles/mindfulness.html">Read More</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <h2>Affordable Mental Health Resources</h2>
+        <p>Discover low-cost and free services to help you access mental health support.</p>
+        <a href="articles/resources.html">Read More</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card">
+        <h2>What to Do During a Panic Attack</h2>
+        <p>Find step-by-step strategies to calm your body and mind during an episode.</p>
+        <a href="articles/panic.html">Read More</a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card">
+        <h2>Self-Care Practices That Actually Help</h2>
+        <p>Build a meaningful self-care routine that fits your lifestyle and emotional needs.</p>
+        <a href="articles/selfcare.html">Read More</a>
+      </div>
+    </section>
+
 
 
 
