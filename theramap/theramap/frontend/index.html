@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheraMap - Intake</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fffbe6;
+      color: #1a1a1a;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .logo {
+      width: 100px;
+    }
+
+    h1 {
+      margin: 10px 0 0;
+      font-size: 24px;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: 14px;
+      margin: 5px 0 20px;
+      color: #2e2e2e;
+    }
+
+    .form-container {
+      background-color: #0c2d6d;
+      padding: 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    label {
+      color: #fff;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #ffc107;
+      color: #000;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #fffde6;
+      padding: 10px 0;
+      border-top: 1px solid #e2e2e2;
+    }
+
+    .nav-bar i {
+      font-size: 22px;
+    }
+
+    .ai-tag {
+      background-color: #ffc107;
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-left: 10px;
+      font-weight: bold;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <img src="theramap-logo.png" alt="TheraMap Logo" class="logo" />
+    <h1>TheraMap</h1>
+    <p>Map your mind.</p>
+  </div>
+
+  <div class="form-container">
+    <form id="intake-form">
+      <label for="insurance">Insurance</label>
+      <input type="text" id="insurance" placeholder="Insurance Provider" />
+
+      <label for="location">Location</label>
+      <input type="text" id="location" placeholder="Zip code or City/state" />
+
+      <label for="concerns">Concerns</label>
+      <input type="text" id="concerns" placeholder="Value" />
+
+      <label for="format">Format</label>
+      <select id="format">
+        <option value="">In-Person or Online</option>
+        <option value="in-person">In-Person</option>
+        <option value="online">Online</option>
+      </select>
+
+      <button type="submit">Find My Match</button>
+    </form>
+  </div>
+
+  <div class="nav-bar">
+    <i class="fas fa-home"></i>
+    <i class="fas fa-comment-alt"></i>
+    <i class="fas fa-plus-square"></i>
+    <i class="fas fa-bell"></i>
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Font Awesome for nav icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="js/intake.js"></script>
+</body>
+</html>
