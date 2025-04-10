@@ -341,10 +341,10 @@ nav {
 
 }
 Nav a {
-    color: #000000;
+    color: #fff5d9 ;
 }
 
 Nav a:hover {
-    color:#fff5d9;
+    color: #fff5d9;
     text-decoration: underline;
 }
