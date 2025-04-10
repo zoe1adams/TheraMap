@@ -69,6 +69,3 @@ This project was created as part of a group collaboration for the FAMU + Eli Lil
 
 ---
 
-## 📄 License
-
-MIT License (or school-specific license if required)
