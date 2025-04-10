@@ -3,9 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat Page</title>
+  <title>TheraMap Chat</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #f7f8fc 0%, #e3e6f0 100%);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .chat-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #4a4e69;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+
+    .chat-info {
+      font-style: italic;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
+
+  <div class="chat-container">
+    <h1>Welcome to TheraMap 💬</h1>
+    <p>We're here to guide you through therapy options and get you matched with the right mental health support. Use the chat in the corner to get started.</p>
+    <p class="chat-info">Tidio chat is available in the bottom corner.</p>
+  </div>
 
   <!-- ✅ Tidio Chatbot Script -->
   <script src="//code.tidio.co/uakjyfc7bdufmh1m3l9t8spmripgot2d.js" async></script>
