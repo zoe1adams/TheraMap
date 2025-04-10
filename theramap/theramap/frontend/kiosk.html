@@ -5,8 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Find a Kiosk</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* General Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* Main Section */
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .kiosk-locations h2 {
+      font-size: 24px;
+      color: #004aad;
+      margin-bottom: 15px;
+    }
+
+    .kiosk-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .kiosk-list li {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .kiosk-list li strong {
+      font-size: 20px;
+      color: #333;
+    }
+
+    .kiosk-list li em {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .kiosk-list a {
+      color: #004aad;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .kiosk-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Map Container */
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>Find a Kiosk</h1>
     <p>Locate nearby physical kiosks or digital check-in stations.</p>
@@ -30,6 +120,18 @@
           <em>Open: Mon-Sat, 10am–6pm</em><br/>
           <a href="#">Book Appointment</a> | <a href="#">Find a Therapist</a>
         </li>
+        <li>
+          <strong>Uptown Health Station</strong><br/>
+          789 Uptown Rd, YourCity, ST 10112<br/>
+          <em>Open: Mon-Sun, 8am–8pm</em><br/>
+          <a href="#">Book Appointment</a> | <a href="#">Find a Therapist</a>
+        </li>
+        <li>
+          <strong>Eastside Wellness Clinic</strong><br/>
+          321 Eastside Blvd, YourCity, ST 21345<br/>
+          <em>Open: Tue-Sat, 10am–4pm</em><br/>
+          <a href="#">Book Appointment</a> | <a href="#">Find a Therapist</a>
+        </li>
       </ul>
     </section>
   </main>
@@ -50,6 +152,8 @@
       const locations = [
         { lat: 40.712776, lng: -74.005974, title: "Downtown Health Center" },
         { lat: 40.730610, lng: -73.935242, title: "Community Wellness Hub" },
+        { lat: 40.758896, lng: -73.985130, title: "Uptown Health Station" },
+        { lat: 40.752726, lng: -73.977229, title: "Eastside Wellness Clinic" },
       ];
 
       locations.forEach(loc => {
