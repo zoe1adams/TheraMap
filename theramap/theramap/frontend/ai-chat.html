@@ -1,66 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TheraMap AI Chat</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chatbot</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f8f6;
-      color: #1a2b4c;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-    }
-
-    header {
-      width: 100%;
-      background: #43521a;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .chat-info {
-      max-width: 600px;
-      text-align: center;
-      margin: 40px auto 20px;
-      padding: 0 20px;
-    }
-
-    .chat-info p {
-      font-size: 16px;
-      color: #333;
-    }
-
-    .elfsight-container {
-      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
       display: flex;
       justify-content: center;
-      margin-top: 30px;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chat-container {
+      width: 100%;
+      max-width: 600px;
+      height: 80%;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-box {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: scroll;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .chat-box .message {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #f1f1f1;
+      max-width: 80%;
+    }
+
+    .chat-box .user-message {
+      background-color: #d1f7d1;
+      align-self: flex-end;
+    }
+
+    .chat-box .ai-message {
+      background-color: #d1e0f7;
+    }
+
+    .input-container {
+      display: flex;
+      padding: 10px;
+    }
+
+    .input-container input {
+      width: 85%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-right: 10px;
+    }
+
+    .input-container button {
+      width: 15%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .input-container button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    🧠 TheraMap AI Chat Assistant
-  </header>
+  <div class="chat-container">
+    <div class="chat-box" id="chat-box">
+      <!-- Messages will appear here -->
+    </div>
 
-  <div class="chat-info">
-    <p>Welcome! I'm your virtual assistant. Let me help you find the right therapist based on your needs, insurance, and availability.</p>
-    <p>Start chatting using the button in the corner below ⬇️</p>
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
   </div>
 
-  <!-- Elfsight AI Chatbot | Untitled AI Chatbot -->
-  <script src="https://static.elfsight.com/platform/platform.js" async></script>
-  <div class="elfsight-app-947baca8-e545-451d-aff1-8a040d2fe4f2" data-elfsight-app-lazy></div>
+  <script>
+    // This function handles sending and displaying messages
+    function sendMessage() {
+      const userInput = document.getElementById('user-input').value;
+      if (userInput.trim() === "") return;  // Prevent sending empty messages
+
+      // Add user message to chat box
+      const chatBox = document.getElementById('chat-box');
+      chatBox.innerHTML += `<div class="message user-message">${userInput}</div>`;
+      
+      // Clear input field
+      document.getElementById('user-input').value = "";
+
+      // Scroll to the bottom of the chat
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Simulate AI response (in real case, you would make an API call here)
+      setTimeout(() => {
+        const aiResponse = getAIResponse(userInput);
+        chatBox.innerHTML += `<div class="message ai-message">${aiResponse}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 1000);
+    }
+
+    // Dummy AI response function (replace with real API call)
+    function getAIResponse(userInput) {
+      // For now, just echo the input (you should connect this to an API like OpenAI's GPT)
+      return `AI says: I heard you say "${userInput}". How can I help?`;
+    }
+  </script>
 
 </body>
 </html>
