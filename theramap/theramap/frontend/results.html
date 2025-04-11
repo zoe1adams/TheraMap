@@ -3,59 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TheraMap - Results</title>
+  <title>Therapist Results</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="bg-white text-gray-900 font-sans">
+
   <!-- Header -->
   <div class="flex items-center p-4 border-b shadow-sm">
-    <button class="text-2xl mr-4">&#8592;</button>
-    <h1 class="text-xl font-semibold">Search</h1>
+    <button onclick="history.back()" class="text-2xl mr-4">&#8592;</button>
+    <h1 class="text-xl font-semibold">Therapist Results</h1>
   </div>
 
-  <!-- Tabs -->
-  <div class="flex justify-around py-2 bg-gray-100 border-b">
-    <button class="px-3 py-1 rounded-full bg-gray-300 text-sm">Find a Kiosk</button>
-    <button class="px-3 py-1 rounded-full bg-yellow-400 text-white text-sm flex items-center gap-1">
-      👩‍⚕️ Therapist
-    </button>
-    <button class="px-3 py-1 rounded-full bg-gray-300 text-sm">Articles</button>
+  <!-- Map Section -->
+  <div id="map" class="w-full h-64 rounded-lg my-4"></div>
+
+  <!-- Therapist Results -->
+  <div class="px-4 py-6 space-y-6">
+
+    <!-- Therapist 1 -->
+    <div class="border p-4 rounded-xl shadow flex gap-4 items-start">
+      <img src="images/image1.png" alt="Dr. Maya Rivers" class="w-24 h-24 object-cover rounded-lg" />
+      <div>
+        <h2 class="text-xl font-semibold">Dr. Maya Rivers</h2>
+        <p class="text-gray-600">Distance: 1.2 miles away</p>
+        <p class="text-gray-700 mt-2">Specializes in cognitive behavioral therapy, stress management, and anxiety disorders.</p>
+        <div class="flex items-center gap-6 mt-2">
+          <p class="text-sm text-yellow-600">⭐ 4.8 (220 reviews)</p>
+          <p class="text-sm text-green-600">$$ Affordable</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Therapist 2 -->
+    <div class="border p-4 rounded-xl shadow flex gap-4 items-start">
+      <img src="images/image2.jpg" alt="Dr. Thomas Lee" class="w-24 h-24 object-cover rounded-lg" />
+      <div>
+        <h2 class="text-xl font-semibold">Dr. Thomas Lee</h2>
+        <p class="text-gray-600">Distance: 2.8 miles away</p>
+        <p class="text-gray-700 mt-2">Expert in relationship counseling and trauma-focused therapy.</p>
+        <div class="flex items-center gap-6 mt-2">
+          <p class="text-sm text-yellow-600">⭐ 4.6 (180 reviews)</p>
+          <p class="text-sm text-green-600">$$$ Moderate</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Results Button -->
+    <div class="flex justify-center mt-6">
+      <button onclick="history.back()" class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600">Back to Intake</button>
+    </div>
   </div>
 
-  <!-- Filter / Sort -->
-  <div class="flex justify-between items-center px-4 py-3">
-    <div class="flex gap-2">
-      <button class="px-4 py-2 bg-gray-100 border rounded-md text-sm">Filter</button>
-      <button class="px-4 py-2 bg-gray-100 border rounded-md text-sm">Sort</button>
-    </div>
-    <div class="text-sm text-gray-500">99 results</div>
-  </div>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([40.7128, -74.0060], 12); // NYC
 
-  <!-- Map Simulation with Distance Tags -->
-  <div class="relative h-60 bg-gray-200 flex items-center justify-center">
-    <img src="https://via.placeholder.com/350x200?text=Map" alt="Map" class="absolute inset-0 w-full h-full object-cover opacity-40" />
-    <div class="grid grid-cols-3 gap-2 z-10">
-      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">22 miles</span>
-      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">19 miles</span>
-      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">15 miles</span>
-      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">11 miles</span>
-      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">2 miles</span>
-      <span class="bg-white rounded-full px-3 py-1 text-xs shadow">4 miles</span>
-      <span class="bg-blue-900 text-white rounded-full px-3 py-1 text-xs shadow font-semibold">0.7 miles</span>
-    </div>
-  </div>
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
 
-  <!-- Therapist Cards -->
-  <div class="px-4 py-6">
-    <div class="mb-4 rounded-xl overflow-hidden shadow-md">
-      <img src="https://via.placeholder.com/400x200?text=Therapist+1" alt="Therapist 1" class="w-full h-48 object-cover" />
-    </div>
-    <div class="mb-4 rounded-xl overflow-hidden shadow-md">
-      <img src="https://via.placeholder.com/400x200?text=Therapist+2" alt="Therapist 2" class="w-full h-48 object-cover" />
-    </div>
-    <button class="w-full bg-blue-900 text-white py-3 rounded-xl font-semibold">
-      Check Therapist (63)
-    </button>
-  </div>
+    const therapists = [
+      { name: "Dr. Maya Rivers", coords: [40.7143, -74.0030] },
+      { name: "Dr. Thomas Lee", coords: [40.7090, -74.0105] }
+    ];
+
+    therapists.forEach(t => {
+      L.marker(t.coords)
+        .addTo(map)
+        .bindPopup(`<strong>${t.name}</strong><br>Click for more info`);
+    });
+  </script>
+
 </body>
 </html>
+
