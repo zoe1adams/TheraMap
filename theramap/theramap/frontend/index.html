@@ -2,198 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TheraMap - Intake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheraMap - Home</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #FCF9DA; /* Updated background color */
-      color: #1a1a1a;
+    :root {
+      --navy: #0c2d6d;
+      --cream: #FCF9DA;
+      --green: #28a745;
+      --green-hover: #218838;
     }
 
-    .logo-container {
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: var(--cream);
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #1a1a1a;
+      overflow: hidden;
+    }
+
+    nav {
+      background-color: #f3f4f6;
+      padding: 0.75rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-weight: 500;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f97316;
+      border-bottom: 2px solid #f97316;
+    }
+
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
       text-align: center;
-      margin-top: 40px;
+      padding: 0.5rem;
+      height: calc(100vh - 112px);
+      margin-top: 64px;
+      box-sizing: border-box;
     }
 
     .logo {
-      width: 200px;
+      width: 100px;
+      margin-bottom: 0.25rem;
     }
 
     h1 {
-      margin: 10px 0 0;
-      font-size: 24px;
-      color: #1a1a1a;
+      font-size: 18px;
+      margin-bottom: 1rem;
+      color: var(--navy);
     }
 
     .form-container {
-      background-color: #0c2d6d;
-      padding: 25px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      margin: 20px auto;
-      color: white;
-    }
-
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: bold;
-    }
-
-    input, select {
+      background-color: var(--navy);
+      padding: 15px;
+      border-radius: 14px;
       width: 100%;
-      padding: 10px;
+      max-width: 360px;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container input,
+    .form-container select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
       border-radius: 8px;
-      border: none;
-      margin-bottom: 10px;
+      border: 1px solid #ffffff40;
+      margin-bottom: 12px;
+      background-color: #0c2d6d;
+      color: white;
+      appearance: none;
+    }
+
+    .form-container select option {
+      background-color: white;
+      color: #1a1a1a;
+    }
+
+    .form-container label {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 13px;
+      display: block;
+      text-align: left;
     }
 
     .btn-submit {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      background-color: #28a745; /* Green */
+      background-color: var(--green);
       color: white;
-      font-size: 16px;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
       cursor: pointer;
-      margin-top: 10px;
+      transition: background-color 0.3s ease;
     }
 
     .btn-submit:hover {
-      background-color: #218838;
-    }
-
-    .ai-chat {
-      margin: 30px auto;
-      width: 90%;
-      max-width: 400px;
-      padding: 15px;
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
-
-    .ai-chat input {
-      width: calc(100% - 80px);
-      padding: 10px;
-      margin-right: 10px;
-    }
-
-    .ai-chat button {
-      width: 60px;
-      background-color: #004aad;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 10px;
-      cursor: pointer;
+      background-color: var(--green-hover);
     }
 
     .nav-bar {
       display: flex;
       justify-content: space-around;
       background-color: #fffbe6;
-      padding: 15px 0;
+      padding: 10px 0;
       border-top: 1px solid #ccc;
       position: fixed;
       bottom: 0;
       width: 100%;
+      z-index: 50;
     }
 
-    .nav-bar i {
-      font-size: 24px;
+    .nav-bar a i {
+      font-size: 20px;
+      color: var(--navy);
     }
   </style>
 </head>
 <body>
 
-  <div class="logo-container">
-    <img class="logo" src="logo.png" alt="TheraMap Logo">
+  <!-- Top Navigation -->
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="ai-chat.html">AI Chat</a>
+    <a href="kiosk.html">Locate a Kiosk</a>
+    <a href="articles.html">Articles</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="page-wrapper">
+    <img class="logo" src="images/logo.png" alt="TheraMap Logo" />
+    <h1>Start Your Wellness Journey</h1>
+
+    <div class="form-container">
+      <form id="intake-form">
+        <label for="insurance">Insurance</label>
+        <input type="text" id="insurance" placeholder="e.g. Aetna">
+
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="Zip or City/State">
+
+        <label for="concerns">Concerns</label>
+        <input type="text" id="concerns" placeholder="e.g. anxiety, stress">
+
+        <label for="format">Format</label>
+        <select id="format">
+          <option value="">Select one</option>
+          <option value="in-person">In-Person</option>
+          <option value="online">Online</option>
+        </select>
+
+        <label for="fee-scale">Sliding Fee Scale</label>
+        <select id="fee-scale">
+          <option value="">Select one</option>
+          <option value="low">Low Income</option>
+          <option value="medium">Medium Income</option>
+          <option value="high">High Income</option>
+        </select>
+
+        <button type="submit" class="btn-submit">Find My Match</button>
+      </form>
+    </div>
   </div>
 
-  <div class="form-container">
-    <form id="intake-form">
-      <label for="insurance">Insurance</label>
-      <input type="text" id="insurance" placeholder="Insurance Provider" required>
-
-      <label for="location">Location</label>
-      <input type="text" id="location" placeholder="Zip code or City/state" required>
-
-      <label for="concerns">Concerns</label>
-      <input type="text" id="concerns" placeholder="e.g. anxiety, stress" required>
-
-      <label for="format">Format</label>
-      <select id="format" required>
-        <option value="">Select one</option>
-        <option value="in-person">In-Person</option>
-        <option value="online">Online</option>
-      </select>
-      
-<label for="fee-scale">Sliding Fee Scale</label>
-<select id="fee-scale" required>
-  <option value="">Select one</option>
-  <option value="low">Low Income</option>
-  <option value="medium">Medium Income</option>
-  <option value="high">High Income</option>
-</select>
-
-      <button type="submit" class="btn-submit">Find My Match</button>
-    </form>
-  </div>
-
+  <!-- Bottom Navigation -->
   <div class="nav-bar">
-    <i class="fa-solid fa-house"></i>
-    <i class="fa-solid fa-comment-dots"></i>
-    <i class="fa-solid fa-plus-square"></i>
-    <i class="fa-solid fa-bell"></i>
-    <i class="fa-solid fa-caret-up"></i>
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+    <a href="ai-chat.html"><i class="fa-solid fa-comment-dots"></i></a>
+    <a href="kiosk.html"><i class="fa-solid fa-map-pin"></i></a>
+    <a href="articles.html"><i class="fa-solid fa-book-open"></i></a>
   </div>
 
+  <!-- Redirect Script -->
   <script>
-    // Handle AI Chat
-    async function handleAIPrompt() {
-      const userInput = document.getElementById('ai-input').value;
-
-      if (!userInput) return alert("Please type something.");
-      
-      try {
-        const response = await fetch('/api/ai-intake', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: userInput })
-        });
-
-        const data = await response.json();
-        alert("AI Response: " + data.reply);
-      } catch (error) {
-        console.error("AI error:", error);
-        alert("Something went wrong. Please try again.");
-      }
-    }
-
-    // Handle Form Submission
-    document.getElementById('intake-form').addEventListener('submit', async (e) => {
+    document.getElementById('intake-form').addEventListener('submit', (e) => {
       e.preventDefault();
-
-      const insurance = document.getElementById('insurance').value;
-      const location = document.getElementById('location').value;
-      const concerns = document.getElementById('concerns').value;
-      const format = document.getElementById('format').value;
-
-      try {
-        const response = await fetch(`/api/therapists?insurance=${insurance}&location=${location}&concerns=${concerns}&format=${format}`);
-        const data = await response.json();
-        localStorage.setItem('therapistResults', JSON.stringify(data));
-        window.location.href = 'results.html';
-      } catch (err) {
-        console.error('Fetch error:', err);
-        alert('Could not get therapist matches.');
-      }
+      window.location.href = 'results.html';
     });
   </script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
