@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TheraMap - Locate a Kiosk</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --navy: #0c2d6d;
+      --cream: #FCF9DA;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: var(--cream);
+      font-family: 'Segoe UI', sans-serif;
+      color: #1a1a1a;
+    }
+
+    nav {
+      background-color: #f3f4f6;
+      padding: 0.75rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-weight: 500;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f97316;
+      border-bottom: 2px solid #f97316;
+    }
+
+    main {
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--navy);
+    }
+
+    p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-around;
+      background-color: #fffbe6;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 50;
+    }
+
+    .nav-bar a i {
+      font-size: 20px;
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ai-chat.html">AI Chat</a>
+    <a href="kiosk.html" class="active">Locate a Kiosk</a>
+    <a href="articles.html">Articles</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Locate a Nearby Kiosk</h1>
+    <p>Find the nearest TheraMap kiosk where you can check in, speak to a virtual assistant, or access mental health resources in person.</p>
+    <div id="map"></div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <div class="nav-bar">
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+    <a href="ai-chat.html"><i class="fa-solid fa-comment-dots"></i></a>
+    <a href="kiosk.html"><i class="fa-solid fa-map-pin"></i></a>
+    <a href="articles.html"><i class="fa-solid fa-book-open"></i></a>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([40.7128, -74.0060], 12); // NYC
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const cvsLocations = [
+      { name: "CVS - Broadway", coords: [40.715, -74.003] },
+      { name: "CVS - 5th Ave", coords: [40.709, -74.010] },
+      { name: "CVS - East Village", coords: [40.726, -73.981] },
+      { name: "CVS - Chelsea", coords: [40.746, -74.001] },
+    ];
+
+    cvsLocations.forEach(loc => {
+      L.marker(loc.coords)
+        .addTo(map)
+        .bindPopup(`<strong>${loc.name}</strong><br>TheraMap kiosk available`);
+    });
+  </script>
+
+</body>
+</html>

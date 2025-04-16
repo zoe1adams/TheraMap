@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TheraMap - Articles</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --navy: #0c2d6d;
+      --cream: #FCF9DA;
+      --text-dark: #1a1a1a;
+      --text-light: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--navy);
+      color: var(--text-light);
+    }
+
+    nav {
+      background-color: #f3f4f6;
+      padding: 0.75rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-weight: 500;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f97316;
+      border-bottom: 2px solid #f97316;
+    }
+
+    header {
+      text-align: center;
+      padding: 6rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: var(--cream);
+    }
+
+    header p {
+      font-size: 1rem;
+      color: var(--cream);
+    }
+
+    main {
+      padding: 1rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      color: var(--text-dark);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: var(--navy);
+    }
+
+    .card p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--cream);
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .card a:hover {
+      background-color: #f9e4b4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-light);
+      background-color: var(--navy);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-around;
+      background-color: #fffbe6;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 50;
+    }
+
+    .nav-bar a i {
+      font-size: 20px;
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ai-chat.html">AI Chat</a>
+    <a href="kiosk.html">Locate a Kiosk</a>
+    <a href="articles.html" class="active">Articles</a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Mental Health Articles</h1>
+    <p>Browse expert insights and self-help tips for wellness and care</p>
+  </header>
+
+  <!-- Article Cards -->
+  <main>
+    <section class="grid">
+      <div class="card">
+        <h2>How to Find the Right Therapist</h2>
+        <p>Learn how to choose a therapist that fits your needs, goals, and comfort level.</p>
+        <a href="articles/therapist.html">Read More</a>
+      </div>
+
+      <div class="card">
+        <h2>Understanding Anxiety</h2>
+        <p>Explore the symptoms, causes, and treatments for anxiety and how to manage it.</p>
+        <a href="articles/anxiety.html">Read More</a>
+      </div>
+
+      <div class="card">
+        <h2>Mindfulness for Beginners</h2>
+        <p>Start your mindfulness journey with simple techniques to improve mental clarity.</p>
+        <a href="articles/mindfulness.html">Read More</a>
+      </div>
+
+      <div class="card">
+        <h2>Affordable Mental Health Resources</h2>
+        <p>Discover low-cost and free services to help you access mental health support.</p>
+        <a href="articles/resources.html">Read More</a>
+      </div>
+
+      <div class="card">
+        <h2>What to Do During a Panic Attack</h2>
+        <p>Find step-by-step strategies to calm your body and mind during an episode.</p>
+        <a href="articles/panic.html">Read More</a>
+      </div>
+
+      <div class="card">
+        <h2>Self-Care Practices That Actually Help</h2>
+        <p>Build a meaningful self-care routine that fits your lifestyle and emotional needs.</p>
+        <a href="articles/selfcare.html">Read More</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Wellness Services. All rights reserved.</p>
+  </footer>
+
+  <!-- Bottom Navigation -->
+  <div class="nav-bar">
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+    <a href="ai-chat.html"><i class="fa-solid fa-comment-dots"></i></a>
+    <a href="kiosk.html"><i class="fa-solid fa-map-pin"></i></a>
+    <a href="articles.html"><i class="fa-solid fa-book-open"></i></a>
+  </div>
+
+</body>
+</html>
